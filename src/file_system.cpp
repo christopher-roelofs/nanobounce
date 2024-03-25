@@ -35,23 +35,10 @@ static boost::filesystem::path get_user_data_directory( void )
 		path = boost::filesystem::current_path();
 	}
 #else
-	const char *const xdg_config_home = getenv("XDG_CONFIG_HOME");
-	if (xdg_config_home != NULL)
-	{
-		path = boost::filesystem::path(xdg_config_home) / "nanobounce";
-	}
-	else
-	{
-		const char *const home = getenv("HOME");
-		if (home != NULL)
-		{
-			path = boost::filesystem::path(home) / ".config" / "nanobounce";
-		}
-		else
-		{
-			path = boost::filesystem::current_path();
-		}
-	}
+	
+	path = boost::filesystem::current_path();
+		
+	
 #endif
 	
 	boost::filesystem::create_directories(path);

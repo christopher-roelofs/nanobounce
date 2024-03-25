@@ -8,7 +8,7 @@ TARGET := nanobounce
 EXTRA_CXXFLAGS += -DHAS_KEYBOARD
 EXTRA_CXXFLAGS += -DHAS_MOUSE
 #EXTRA_CXXFLAGS += -DHAS_SHOULDER_BUTTONS
-#EXTRA_CXXFLAGS += -DHAS_320x240_VIDEO
+EXTRA_CXXFLAGS += -DHAS_320x240_VIDEO
 #EXTRA_CXXFLAGS += -DAUDIO_QUALITY=2
 
 ## if libc provides sync()
@@ -27,11 +27,9 @@ OBJS := $(SRCS:src/%.cpp=obj/%.o)
 
 EXTRA_CXXFLAGS += -MMD
 EXTRA_CXXFLAGS += -pedantic
-EXTRA_CXXFLAGS += -Wall \
-                  -Wextra \
-                  -Wold-style-cast \
-                  -Wno-long-long \
-                  -Wno-missing-field-initializers
+EXTRA_CXXFLAGS += -Wold-style-cast \
+                  -Wno-long-long 
+                  
 
 ifeq ($(MAKECMDGOALS), release)
     EXTRA_CXXFLAGS += -O2
